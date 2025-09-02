@@ -49,7 +49,7 @@ export default function Sidebar({ userName, type }: SidebarProps) {
             />
           </Indicator>
           <Stack gap={0}>
-            <Text size="sm">User : Wisarut Sada : Admin</Text>
+            <Text size="sm">User : {userName}</Text>
             {type && (
               <Text size="xs" c="dimmed">
                 Role : {type}

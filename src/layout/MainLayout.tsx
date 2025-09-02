@@ -6,8 +6,7 @@ import FooterComponent from "../components/Footer";
 import { useDisclosure } from "@mantine/hooks";
 export default function MainLayout() {
   const [opened, { toggle }] = useDisclosure();
-  //opened: เป็น boolean (true/false)
-  //toggle(): สลับค่า opened (true → false → true)
+
   return (
     <AppShell
       padding="md"
@@ -20,14 +19,14 @@ export default function MainLayout() {
       </AppShell.Header>
 
       <AppShell.Navbar>
-        <Sidebar />
+        <Sidebar userName="Wisarut Sada" type="student" />
       </AppShell.Navbar>
 
       <AppShell.Footer>
         <FooterComponent
           year="2025"
-          fullName="chanadda"
-          studentId="670612039"
+          fullName="Wisarut Sada"
+          studentId="630612110"
         />
       </AppShell.Footer>
 
