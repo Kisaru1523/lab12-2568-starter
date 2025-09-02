@@ -8,12 +8,13 @@ import {
   Text,
   Group,
 } from "@mantine/core";
-interface SidebarComponentProps  {
+
+export type SidebarProps = {
   userName: string;
-  type?: "admin" |"student";
-}
-export type { SidebarProps };
-export default function Sidebar() {
+  type?: "admin" | "student";
+};
+
+export default function Sidebar({ userName, type }: SidebarProps) {
   return (
     <Stack
       align="stretch"
@@ -21,7 +22,7 @@ export default function Sidebar() {
       gap="md"
       style={{ height: "100%" }}
     >
-      {/* Menu / เมนู*/}
+    
       <Box>
         <NavLink
           color="cyan"
@@ -36,14 +37,26 @@ export default function Sidebar() {
           component={RouterNavLink}
           to="/about"
         />
-        {/* ตัวอย่าง ใช้ Navlink กับ  components อื่นๆ ของ mantine */}
-        {/* <Text component={RouterNavLink} to="/">
-          Test
-        </Text> */}
       </Box>
-      {/* แสดงผู้ใช้งาน */}
+
       <Box p={10}>
-        <Text>chanadda</Text>
+        <Group>
+          <Indicator color="green" processing>
+            <Avatar
+              src="public/me.jpg" 
+              alt="user avatar"
+              radius="xl"
+            />
+          </Indicator>
+          <Stack gap={0}>
+            <Text size="sm">User : Wisarut Sada : Admin</Text>
+            {type && (
+              <Text size="xs" c="dimmed">
+                Role : {type}
+              </Text>
+            )}
+          </Stack>
+        </Group>
       </Box>
     </Stack>
   );
